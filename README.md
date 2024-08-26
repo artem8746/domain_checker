@@ -1,6 +1,6 @@
 ## Twilight
 
-- [Demo Frontend](https://twilight-frontend-vddv.vercel.app/)
+- [Demo Frontend](https://twilight-frontend- vddv.vercel.app/)
 - [Demo Backend](https://twilight-ga73.onrender.com)
 
 ### Used technologies
@@ -21,7 +21,7 @@
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/WorkingHardDev/twilight.git
+   git clone https://github.com/artem8746/domain_checker.git
    ```
 
 2. Navigate to the project directory:
