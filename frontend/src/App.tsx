@@ -4,7 +4,7 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { useState } from "react";
-import axios, { AxiosResponse } from "axios";
+import axios, { AxiosError, AxiosResponse } from "axios";
 import { DomainInfoResponse } from "./types";
 import { Header } from "./components/Header/Header.tsx";
 import { ChartsData } from "./components/ChartsData/ChartsData.tsx";
@@ -31,39 +31,34 @@ function App() {
     setError("");
 
     try {
-      const response: AxiosResponse<DomainInfoResponse | string> = await axios.post(`${BASE_API_URL}/twilight/search`, {
+      const response: AxiosResponse<DomainInfoResponse> = await axios.post(`${BASE_API_URL}/twilight/search`, {
         domain: domain,
         next: domainData?.newNext,
       });
 
-      if (response.status !== 200) {
-        setError(response.data as string);
-        setLoading(false);
-
-        return;
-      }
-
       setLoading(false);
 
-      if ((response.data as DomainInfoResponse).domain !== domain) {
-        setDomainData(response.data as DomainInfoResponse);
+      if (response.data.domain !== domain) {
+        setDomainData(response.data);
 
         return;
       }
 
       const newDomainData = {
-        domain: (response.data as DomainInfoResponse).domain,
-        newNext: (response.data as DomainInfoResponse).newNext,
+        domain: response.data.domain,
+        newNext: response.data.newNext,
         domainData: [
           ...domainData?.domainData || [],
-          ...(response.data as DomainInfoResponse).domainData,
+          ...response.data.domainData,
         ],
       };
 
       setDomainData(newDomainData);
-    } catch {
+    } catch (ex) {
+      console.log(ex, 'error');
+
       setDomainData(undefined);
-      setError("An error occurred");
+      setError((ex as AxiosError).response?.data as string || 'An error occurred');
       setLoading(false);
 
       return;
