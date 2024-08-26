@@ -1,5 +1,4 @@
-import { DomainData } from "backend/services/types";
-import { ExtraInfoData } from "../types";
+import { DomainData, ExtraInfoData } from "../types";
 
 export function prepareExtraInfoData(domainData: DomainData[]) {
   const extraInfo = domainData.reduce((prev, curr) => {

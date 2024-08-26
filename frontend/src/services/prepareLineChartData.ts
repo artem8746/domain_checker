@@ -1,5 +1,4 @@
-import { DomainData } from "backend/services/types";
-import { DomainInfoResponse, LineChartData } from "../types";
+import { DomainData, DomainInfoResponse, LineChartData } from "../types";
 
 function countInfectedMachinesByStealerAndYear(domainData: DomainData[], date: number, stealer: string) {
   if (date % 1 === 0) {
