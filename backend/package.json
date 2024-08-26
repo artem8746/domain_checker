@@ -6,6 +6,7 @@
   "scripts": {
     "init": "cp .env.sample .env",
     "dev": "ts-node index.ts",
+    "start": "node dist/index.js",
     "build": "tsc",
     "lint": "eslint ."
   },
