@@ -1,7 +1,7 @@
 ## Twilight
 
-- [Demo Frontend](https://twilight-frontend- vddv.vercel.app/)
-- [Demo Backend](https://twilight-ga73.onrender.com)
+- [Demo Frontend](https://domain-checker-frontend.vercel.app/)
+- [Demo Backend](https://domain-checker-6694.onrender.com)
 
 ### Used technologies
 
