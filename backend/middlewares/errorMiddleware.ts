@@ -14,6 +14,8 @@ export const errorMiddleware = (
     res.send(error.message);
 
     next();
+
+    return;
   }
 
   console.error(error);

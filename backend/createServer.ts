@@ -1,7 +1,6 @@
 import express, { json } from 'express';
 import cors from 'cors';
 import { router as twilightRouter } from './routes/twilight.route';
-import { catchError } from './utils/catchError';
 import { errorMiddleware } from './middlewares/errorMiddleware';
 import dotenv from 'dotenv';
 
@@ -15,7 +14,7 @@ export function createServer() {
   }));
   app.use(json());
 
-  app.use('/twilight', catchError(twilightRouter));
+  app.use('/twilight', twilightRouter);
 
   app.use(errorMiddleware);
 

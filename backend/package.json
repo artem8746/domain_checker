@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "init": "cp .env.sample .env",
+    "dev": "ts-node index.ts",
+    "build": "tsc",
+    "lint": "eslint ."
   },
   "keywords": [],
   "author": "",
